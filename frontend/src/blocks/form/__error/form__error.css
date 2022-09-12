@@ -1,0 +1,11 @@
+.form__error {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    display: block;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    transition: 0.3s;
+    position: absolute;
+    top: 38px;
+    z-index: 1;
+}

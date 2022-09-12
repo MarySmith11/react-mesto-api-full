@@ -1,0 +1,20 @@
+.cards__basket-button {
+    background: url(../../../images/basket.svg) center no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    position: absolute;
+    width: 18px;
+    height: 19px;
+    top: 21px;
+    right: 20px;
+    border: none;
+    transition: opacity .3s ease-in-out;
+}
+
+.cards__basket-button_hidden {
+    display: none;
+}
+
+.cards__basket-button:hover {
+    opacity: 0.5;
+}

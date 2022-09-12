@@ -1,0 +1,8 @@
+.form__text-wrap {
+    position: relative;
+    height: 58px;
+}
+
+.form__text-wrap:last-of-type {
+    margin-bottom: 25px;
+}

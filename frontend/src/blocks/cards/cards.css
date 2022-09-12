@@ -1,0 +1,11 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+    gap: 17px;
+}
+
+@media screen and (max-width: 400px) {
+    .cards {
+        gap: 20px;
+    }
+}

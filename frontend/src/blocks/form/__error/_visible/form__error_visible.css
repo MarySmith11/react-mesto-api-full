@@ -1,0 +1,7 @@
+.form__error_visible {
+    opacity: 1;
+}
+
+.form__error_visible:last-of-type {
+    margin-bottom: 31px;
+}

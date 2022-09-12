@@ -1,0 +1,8 @@
+.cards__picture {
+    max-width: 100%;
+    width: 100%;
+    height: 282px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}

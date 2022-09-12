@@ -1,0 +1,9 @@
+.popup__image-container {
+    position: relative;
+}
+
+@media screen and (max-width: 914px) {
+    .popup__image-container {
+        padding: 0 40px;
+    }
+}

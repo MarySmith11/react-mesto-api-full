@@ -1,0 +1,18 @@
+.page {
+    background-color: #000;
+    max-width: 918px;
+    min-width: 320px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    display: flex;
+    flex-direction: column;
+    padding: 0 19px;
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 400px) {
+    .page {
+        padding: 0;
+    }
+}

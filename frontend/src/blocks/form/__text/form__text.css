@@ -1,0 +1,23 @@
+.form__text {
+    border: none;
+    width: 100%;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 8px 0px 9px;
+    margin-bottom: 22px;
+}
+
+.form__text:last-of-type {
+    margin-bottom: 48px;
+}
+
+@media screen and (max-width: 560px) {
+    .form__text:last-of-type {
+        margin-bottom: 45px;
+    }
+}
