@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'https://backend.marysmith.nomoredomains.sbs';
 
 const getResponse = (response) => {
   if (response.ok && response.status !== 400 && response.status !== 401) {
