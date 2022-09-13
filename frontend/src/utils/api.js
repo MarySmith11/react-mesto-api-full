@@ -99,9 +99,8 @@ class Api {
 
 const apiInstance = new Api( 
     { 
-      baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-42', 
+      baseUrl: 'https://backend.marysmith.nomoredomains.sbs', 
       headers: { 
-        authorization: '06c6d84b-91cf-46b1-9787-cc57bf55dfba', 
         'Content-Type': 'application/json' 
       } 
     } 
