@@ -16,7 +16,7 @@ const NotFoundError = require('./errors/not-found-err');
 const { auth } = require('./middlewares/auth');
 
 const corsOptions = { 
-  origin: ['https://marysmith.nomoredomains.sbs', 'http://marysmith.nomoredomains.sbs'], 
+  origin: ['https://marysmith.nomoredomains.sbs', 'http://marysmith.nomoredomains.sbs', 'https://backend.marysmith.nomoredomains.sbs', 'http://backend.marysmith.nomoredomains.sbs'], 
   credentials: true, 
 };
  
