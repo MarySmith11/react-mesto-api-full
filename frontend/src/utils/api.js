@@ -8,7 +8,8 @@ class Api {
         return fetch(
             `${this._baseUrl}/users/me`,
             {
-                headers: this._baseHeaders
+                headers: this._baseHeaders,
+                credentials: 'include',
             }
         ).then((res) => this._getResponse(res, 'Произошла ошибка при получении информации о пользователе'));
     }
@@ -17,7 +18,8 @@ class Api {
         return fetch(
             `${this._baseUrl}/cards`,
             {
-                headers: this._baseHeaders
+                headers: this._baseHeaders,
+                credentials: 'include',
             }
         )
             .then((res) => this._getResponse(res, 'Произошла ошибка при получении карточек'));
@@ -29,6 +31,7 @@ class Api {
             {
                 method: 'PATCH',
                 headers: this._baseHeaders,
+                credentials: 'include',
                 body: JSON.stringify({
                     name,
                     about
@@ -44,6 +47,7 @@ class Api {
             {
                 method: 'PATCH',
                 headers: this._baseHeaders,
+                credentials: 'include',
                 body: JSON.stringify({
                     avatar
                 })
@@ -58,6 +62,7 @@ class Api {
             {
                 method: 'POST',
                 headers: this._baseHeaders,
+                credentials: 'include',
                 body: JSON.stringify({
                     name,
                     link
@@ -72,7 +77,8 @@ class Api {
             `${this._baseUrl}/cards/${cardId}`,
             {
                 method: 'DELETE',
-                headers: this._baseHeaders
+                headers: this._baseHeaders,
+                credentials: 'include',
             }
         )
             .then((res) => this._getResponse(res, 'Произошла ошибка при удалении карточки'));
@@ -83,7 +89,8 @@ class Api {
             `${this._baseUrl}/cards/likes/${cardId}`,
             {
                 method: type,
-                headers: this._baseHeaders
+                headers: this._baseHeaders,
+                credentials: 'include',
             }
         )
             .then((res) => this._getResponse(res, 'Произошла ошибка при постановке лайка'));
