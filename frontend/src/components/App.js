@@ -180,7 +180,8 @@ function App() {
   }
 
   function handleLogout() { 
-    setLoggedIn(false);     
+    setLoggedIn(false);    
+    document.cookie = 'token=; Max-Age=-99999999;'; 
   } 
 
   return (
