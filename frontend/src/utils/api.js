@@ -86,7 +86,7 @@ class Api {
 
     likeAction(cardId, type) {
         return fetch(
-            `${this._baseUrl}/cards/likes/${cardId}`,
+            `${this._baseUrl}/cards/${cardId}/likes`,
             {
                 method: type,
                 headers: this._baseHeaders,

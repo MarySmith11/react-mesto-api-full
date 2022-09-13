@@ -46,6 +46,9 @@ export const checkToken = (token) => {
     }, 
     credentials: 'include' 
   })
-    .then(getResponse)
-    .then(data => data);
+    .then(res => res.json())
+    .then(data => data) 
+    .catch(err => { 
+      console.log(err); 
+    }); 
 }

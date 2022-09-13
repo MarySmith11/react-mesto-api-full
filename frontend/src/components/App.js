@@ -66,7 +66,7 @@ function App() {
 
   React.useEffect(() => {
     apiInstance.getUserInfo().then((res) => {
-      setCurrentUser(res);
+      setCurrentUser(res.data);
     }).catch((err) => {
       console.log(err);
     });
@@ -88,7 +88,7 @@ function App() {
 
   const handleUpdateUser = (userData) => {
     apiInstance.updateUserProfile(userData).then((res) => {
-      setCurrentUser(res);
+      setCurrentUser(res.data);
       closeAllPopups();
     })
       .catch((err) => {
@@ -99,7 +99,7 @@ function App() {
   function handleUpdateAvatar(userData) {
     apiInstance.updateUserAvatar(userData.avatar)
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser(res.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -112,7 +112,7 @@ function App() {
 
   React.useEffect(() => {
     apiInstance.getInitialCards().then((res) => {
-      setCards(res);
+      setCards(res.data);
     }).catch((err) => {
       console.log(err);
     });
@@ -120,11 +120,11 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.includes(currentUser._id);
     const method = isLiked ? 'DELETE' : 'PUT';
     // Отправляем запрос в API и получаем обновлённые данные карточки
     apiInstance.likeAction(card._id, method).then((newCard) => {
-      setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+      setCards((state) => state.map((c) => c._id === card._id ? newCard.data : c));
     });
   }
 
@@ -139,7 +139,7 @@ function App() {
   function handleAddPlaceSubmit(newCard) {
     apiInstance.addNewCard(newCard)
       .then((res) => {
-        setCards([res, ...cards]);
+        setCards([res.data, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
@@ -180,10 +180,7 @@ function App() {
   }
 
   function handleLogout() { 
-    setLoggedIn(false); 
-    if (localStorage.getItem('jwt')) { 
-      localStorage.removeItem('jwt'); 
-    } 
+    setLoggedIn(false);     
   } 
 
   return (
