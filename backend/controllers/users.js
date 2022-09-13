@@ -8,7 +8,9 @@ const BadRequestError = require('../errors/bad-request-err');
 const InternalServerError = require('../errors/internal-server-err');
 const NotFoundError = require('../errors/not-found-err');
 
-const JWT_SECRET = 'testtesttest';
+require('dotenv').config(); 
+
+const { JWT_SECRET = '12ab11231234212312323112321312313' } = process.env;
 
 module.exports.createUser = (req, res, next) => {
   const {
