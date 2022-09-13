@@ -38,11 +38,11 @@ export const login = (email, password) => {
 export const checkToken = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
-    }
+    headers: { 
+      'Accept': 'application/json', 
+      'Content-Type': 'application/json', 
+    }, 
+    credentials: 'include' 
   })
     .then(getResponse)
     .then(data => data);

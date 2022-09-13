@@ -40,29 +40,25 @@ function App() {
   const history = useHistory();
 
   const handleTokenCheck = () => { 
-    if (localStorage.getItem('jwt')) { 
-      const jwt = localStorage.getItem('jwt'); 
-      auth.checkToken(jwt) 
-        .then((res) => { 
-          if (res.data) { 
-            if (!!res.data.email) { 
-              setUserEmail(res.data.email); 
-            } 
-            setLoggedIn(true); 
-            setTokenChecked(true); 
-            history.push('/'); 
-          } else { 
-            setLoggedIn(false); 
-            localStorage.removeItem('jwt'); 
-            setTokenChecked(true); 
+    auth.checkToken()
+      .then((res) => { 
+        if (res.data) {
+          if (!!res.data.email) { 
+            setUserEmail(res.data.email); 
+          } 
+          setLoggedIn(true); 
+          setTokenChecked(true); 
+          history.push('/'); 
+        } else { 
+          setLoggedIn(false); 
+          setTokenChecked(true); 
+          if(history.location.pathname !== '/sign-up'){ 
             history.push('/sign-in'); 
           } 
-        }) 
-        .catch(err => console.log(err)); 
-    } else { 
-      setTokenChecked(true); 
-    } 
-  } 
+        } 
+      }) 
+      .catch(err => console.log(err)); 
+  }
 
   React.useEffect(() => { 
     handleTokenCheck(); 
@@ -152,19 +148,17 @@ function App() {
   }
 
   function handleLogin(email, password) {
-    if (!email || !password) {
-      return;
-    }
-    auth.login(email, password)
-      .then(data => {
-        if (data.token) {
-          localStorage.setItem('jwt', data.token);
-          history.push('/');
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    if (!email || !password) { 
+      return; 
+    } 
+
+    auth.login(email, password) 
+      .then(() => { 
+          history.push('/'); 
+      }) 
+      .catch(err => { 
+        console.log(err); 
+      }); 
   }
 
   function handleRegister(email, password) {
