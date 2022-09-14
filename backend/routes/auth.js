@@ -17,7 +17,7 @@ authRouter.post('/signup', celebrate({
     about: Joi.string().min(2).max(30).default('Исследователь'),
     avatar: Joi.string().pattern(/^https?:\/\/([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*#?$/).default('https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png'),
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(8),
+    password: Joi.string().required().min(6),
   }),
 }), createUser);
 
