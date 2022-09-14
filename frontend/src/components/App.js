@@ -34,7 +34,6 @@ function App() {
 
   const [currentUser, setCurrentUser] = React.useState({});
 
-  const [userEmail, setUserEmail] = React.useState('');
   const [loggedIn, setLoggedIn] = React.useState(false);
 
   const history = useHistory();
@@ -43,9 +42,7 @@ function App() {
     auth.checkToken()
       .then((res) => { 
         if (res.data) {
-          if (!!res.data.email) { 
-            setUserEmail(res.data.email); 
-          } 
+          setCurrentUser(res.data); 
           setLoggedIn(true); 
           setTokenChecked(true); 
           history.push('/'); 
@@ -105,7 +102,6 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-
   }
 
   const [cards, setCards] = React.useState([]);
@@ -116,7 +112,7 @@ function App() {
     }).catch((err) => {
       console.log(err);
     });
-  }, []);
+  }, [loggedIn]);
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
@@ -186,7 +182,7 @@ function App() {
 
   return (
     tokenChecked && <CurrentUserContext.Provider value={currentUser}>
-      <Header loggedIn={loggedIn} userEmail={userEmail} handleLogout={handleLogout} />
+      <Header loggedIn={loggedIn} userEmail={currentUser.email} handleLogout={handleLogout} />
       <Switch>
         <ProtectedRoute component={Main} exact path="/" loggedIn={loggedIn} cards={cards} onCardDelete={handleCardDelete} onCardLike={handleCardLike} onEditProfile={() => { setIsEditProfilePopupOpen(true) }} onAddPlace={() => { setIsAddPlacePopupOpen(true) }} onEditAvatar={() => { setIsEditAvatarPopupOpen(true) }} onCardClick={handleCardClick} />
         <Route path="/sign-in">
