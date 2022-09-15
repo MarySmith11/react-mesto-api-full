@@ -32,7 +32,7 @@ const corsOptions = {
  
 const limiter = rateLimit({ 
   windowMs: 60 * 1000, 
-  max: 30,
+  max: 150,
 }); 
 
 const app = express();
