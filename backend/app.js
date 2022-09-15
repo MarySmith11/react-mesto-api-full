@@ -18,6 +18,7 @@ const { auth } = require('./middlewares/auth');
 const corsOptions = { 
   origin: ['https://marysmith.nomoredomains.sbs', 'http://marysmith.nomoredomains.sbs'], 
   credentials: true,
+  allowedHeaders: ['Accept', 'X-Requested-With', 'Origin', 'Content-Type', 'Authorization'],
   methods: [
     'GET',
     'HEAD',
@@ -45,7 +46,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useUnifiedTopology: true,
 });
 
-app.use(cors(corsOptions)); 
+app.use('*', cors(corsOptions)); 
 app.use(limiter); 
 app.use(helmet());
 app.use(cookieParser());
