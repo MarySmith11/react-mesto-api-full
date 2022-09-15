@@ -16,8 +16,17 @@ const NotFoundError = require('./errors/not-found-err');
 const { auth } = require('./middlewares/auth');
 
 const corsOptions = { 
-  origin: ['https://marysmith.nomoredomains.sbs', 'http://marysmith.nomoredomains.sbs', 'https://backend.marysmith.nomoredomains.sbs', 'http://backend.marysmith.nomoredomains.sbs'], 
-  credentials: true, 
+  origin: ['https://marysmith.nomoredomains.sbs', 'http://marysmith.nomoredomains.sbs'], 
+  credentials: true,
+  methods: [
+    'GET',
+    'HEAD',
+    'PUT',
+    'PATCH',
+    'PUT',
+    'DELETE',
+    'OPTIONS'
+  ],
 };
  
 const limiter = rateLimit({ 
