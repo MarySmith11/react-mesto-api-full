@@ -52,7 +52,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useUnifiedTopology: true,
 });
 
-app.use('*', cors()); 
+app.use('*', cors(corsOptions)); 
 app.use(limiter); 
 app.use(helmet());
 app.use(cookieParser());
